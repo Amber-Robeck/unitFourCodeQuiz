@@ -7,9 +7,12 @@ var questionBox = document.getElementById("questions")
 
 //start button starts timer and it stops when hits 0
 
-startButton.addEventListener("click", function() {
-    console.log(startButton)
-    questionBox.textContent = questions.q[0];
+startButton.addEventListener("click", startQuiz)
+    
+  function startQuiz() {
+  console.log(startButton)
+  startButton.classList.add("hide")
+    questionBox.textContent = questions[0];
     var interval = setInterval(function () {
         timer--;
         console.log(timer)
@@ -19,7 +22,7 @@ startButton.addEventListener("click", function() {
             } 
             
          } ,1000);
-        });
+        };
 
         var questions = [
             {
