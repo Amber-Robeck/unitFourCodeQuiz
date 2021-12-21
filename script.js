@@ -32,7 +32,7 @@ startButton.addEventListener("click", startQuiz)
     while (buttonDisplay.firstChild){
       buttonDisplay.removeChild(buttonDisplay.firstChild)
     }
-    questionDisplay.innerText = questions['askQuestion'];
+    questionDisplay.innerText = questions[0].askQuestion;
     questions[0].options.forEach(option => {
       var button = document.createElement("button")
         button.innerText = option.text
@@ -112,7 +112,7 @@ startButton.addEventListener("click", startQuiz)
           console.log(event)
           var userSelect = event.target.innerHTML
           console.log(userSelect)
-          if (userSelect === questions.correct){
+          if (userSelect === questions[0].correct){
 
           alert("correct")
          } else {
