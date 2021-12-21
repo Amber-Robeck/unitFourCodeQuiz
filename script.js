@@ -129,6 +129,10 @@ startButton.addEventListener("click", startQuiz)
          showQuestion();
         }else{
           questionBox.classList.add("hide");
+          timerE1.classList.add("hide")
+          userScore.name = prompt("Please enter in your initials")
+          console.log(JSON.stringify(userScore));
+          // localStorage.setItem("", input.val());
         }
         }
 
