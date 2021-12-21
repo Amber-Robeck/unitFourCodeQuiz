@@ -132,8 +132,18 @@ startButton.addEventListener("click", startQuiz)
           questionBox.classList.add("hide");
           timerE1.classList.add("hide");
           userScore.name = prompt("Please enter in your initials");
+          // console.log(prompt)
           console.log(JSON.stringify(userScore));
           localStorage.setItem("user", JSON.stringify(userScore));
+          if (window.prompt){
+            window.location.href ="highscores.html"
+          } 
+          // else{
+            // userScore.name = prompt("Please enter your initials!!")
+          // };
+          // var whereIsThis=event.target
+          // console.log(whereIsThis)
+          // console.log(window.prompt)
         }
         }
 
