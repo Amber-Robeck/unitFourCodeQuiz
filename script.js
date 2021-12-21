@@ -43,7 +43,7 @@ startButton.addEventListener("click", startQuiz)
 
       buttonDisplay.appendChild(button)
     // buttonDisplay.innerText = questions.options[0].text;
-      console.log(questions[0].options[0].text)
+      // console.log(questions[0].options[0].text)
   })};
 
   
@@ -98,7 +98,8 @@ startButton.addEventListener("click", startQuiz)
                          
                            correct: "1",
                          }      
-                  ]; console.log(questions)
+                   ]; 
+                  //  console.log(questions)
                 // {
             //     q: "second question",
             //     options: [
@@ -112,12 +113,12 @@ startButton.addEventListener("click", startQuiz)
         function selectAnswer(event){
           console.log(event)
           var userSelect = event.target.innerHTML
-          console.log(userSelect)
+          // console.log(userSelect)
           var rightWrong = document.getElementById("rightWrong");
           if (userSelect === questions[0].correct){
             rightWrong.textContent = "Correct!"
             userScore.points = (userScore.points + 5)
-            console.log(userScore)
+            // console.log(userScore)
          } else {
             rightWrong.textContent = "Wrong!"
          }
@@ -129,10 +130,10 @@ startButton.addEventListener("click", startQuiz)
          showQuestion();
         }else{
           questionBox.classList.add("hide");
-          timerE1.classList.add("hide")
-          userScore.name = prompt("Please enter in your initials")
+          timerE1.classList.add("hide");
+          userScore.name = prompt("Please enter in your initials");
           console.log(JSON.stringify(userScore));
-          // localStorage.setItem("", input.val());
+          localStorage.setItem("user", JSON.stringify(userScore));
         }
         }
 
