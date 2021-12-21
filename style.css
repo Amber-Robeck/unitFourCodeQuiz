@@ -27,6 +27,14 @@ box-shadow: 0 0 10px 5px;
     margin: 20px;
 }
 
+#displayTimer {
+    position:fixed;
+    top: 0;
+    background-color: white;
+    width: 45px;
+    margin: 30px;
+}
+
 #start {
     font-size: 60px;
     font-weight: bold;

@@ -1,8 +1,10 @@
 var startButton = document.getElementById("start");
 var timerE1 = document.getElementById("displayTimer");
 var timer = 10;
-var questionBox = document.getElementById("questions")
-
+var questionBox = document.getElementById("questions-container")
+var questionDisplay = document.getElementById("questions")
+var buttonDisplay = document.getElementById("option-buttons")
+var currentQuestionIndex = 0
 
 
 //start button starts timer and it stops when hits 0
@@ -12,30 +14,114 @@ startButton.addEventListener("click", startQuiz)
   function startQuiz() {
   console.log(startButton)
   startButton.classList.add("hide")
-    questionBox.textContent = questions[0];
+  questionBox.classList.remove("hide")
+    // questionBox.textContent = questions[0];
     var interval = setInterval(function () {
         timer--;
-        console.log(timer)
+        // console.log(timer)
         timerE1.textContent = timer;
         if (timer === 0) {
                 clearInterval(interval);
             } 
             
          } ,1000);
-        };
+         showQuestion();
 
-        var questions = [
-            {
-                q: "first question",
-                options: ["1", "2", "3", "4"],
-                correct: "1"
-            },
-            {
-                q: "second question",
-                options: ["1", "2", "3", "4"],
-                correct: "2"
-            }
-        ]
+        };
+  function showQuestion(){
+    while (buttonDisplay.firstChild){
+      buttonDisplay.removeChild(buttonDisplay.firstChild)
+    }
+    questionDisplay.innerText = questions['askQuestion'];
+    questions[0].options.forEach(option => {
+      var button = document.createElement("button")
+        button.innerText = option.text
+        // button.setAttribute("data-value", option.text)
+    
+      button.addEventListener("click",selectAnswer)
+
+      buttonDisplay.appendChild(button)
+    // buttonDisplay.innerText = questions.options[0].text;
+      console.log(questions[0].options[0].text)
+  })};
+
+  
+
+  // function nextQuestion(){
+  //   showQuestion(currentQuestionIndex[0])
+  // }
+        // var questions = 
+        //     {
+        //         askQuestion: "first question",
+        //         options: [
+        //           {text: "1", correct: true},
+        //           {text: "2", correct: false},
+        //           {text: "3", correct: false},
+        //           {text: "4", correct: false}]
+        //         } 
+        //         console.log (questions[0])
+
+                var questions = [
+                {
+                   askQuestion: "first question",
+                    options: [
+                      {text: "1"},
+                      {text: "2"},
+                      {text: "3"},
+                      {text: "4"}
+                    ],
+                    
+                      correct: "1",
+                    }, 
+                    // console.log (questions.options[3].text)
+  
+                
+                  {askQuestion: "second question",
+                       options: [
+                         {text: "1"},
+                         {text: "2"},
+                         {text: "3"},
+                         {text: "4"}
+                       ],
+                       
+                         correct: "1",
+                       }, 
+                       {
+                        askQuestion: "third question",
+                         options: [
+                           {text: "1"},
+                           {text: "2"},
+                           {text: "3"},
+                           {text: "4"}
+                         ],
+                         
+                           correct: "1",
+                         }      
+                  ]; console.log(questions)
+                // {
+            //     q: "second question",
+            //     options: [
+            //       {text:"1", correct:true},
+            //       {text:"2", correct:false},
+            //       {text:"3", correct:false},
+            //       {text:"4", correct:false}]
+            // },
+        
+        
+        function selectAnswer(event){
+          console.log(event)
+          var userSelect = event.target.innerHTML
+          console.log(userSelect)
+          if (userSelect === questions.correct){
+
+          alert("correct")
+         } else {
+           alert("wrong")
+         }
+
+
+        }
+
         
         //Click on Start button
           // start the timer
