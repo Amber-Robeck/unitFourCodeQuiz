@@ -5,6 +5,7 @@ var questionBox = document.getElementById("questions-container")
 var questionDisplay = document.getElementById("questions")
 var buttonDisplay = document.getElementById("option-buttons")
 var currentQuestionIndex = 0
+var userScore = {name:" ", points: 0,}
 
 
 //start button starts timer and it stops when hits 0
@@ -112,14 +113,23 @@ startButton.addEventListener("click", startQuiz)
           console.log(event)
           var userSelect = event.target.innerHTML
           console.log(userSelect)
+          var rightWrong = document.getElementById("rightWrong");
           if (userSelect === questions[0].correct){
-
-          alert("correct")
+            rightWrong.textContent = "Correct!"
+            userScore.points = (userScore.points + 5)
+            console.log(userScore)
          } else {
-           alert("wrong")
+            rightWrong.textContent = "Wrong!"
          }
-
-
+         currentQuestionIndex++;
+        //  for (var i = 0; i < questions.length; currentQuestionIndex++){
+        //  showQuestion();
+        //  };
+        if (currentQuestionIndex < questions.length){
+         showQuestion();
+        }else{
+          questionBox.classList.add("hide");
+        }
         }
 
         
