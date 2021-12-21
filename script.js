@@ -32,8 +32,8 @@ startButton.addEventListener("click", startQuiz)
     while (buttonDisplay.firstChild){
       buttonDisplay.removeChild(buttonDisplay.firstChild)
     }
-    questionDisplay.innerText = questions[0].askQuestion;
-    questions[0].options.forEach(option => {
+    questionDisplay.innerText = questions[currentQuestionIndex].askQuestion;
+    questions[currentQuestionIndex].options.forEach(option => {
       var button = document.createElement("button")
         button.innerText = option.text
         // button.setAttribute("data-value", option.text)
