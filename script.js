@@ -10,7 +10,7 @@ var userScore = {name:" ", points: 0,}
 
 //start button starts timer and it stops when hits 0
 
-startButton.addEventListener("click", startQuiz)
+startButton.addEventListener("click", startQuiz);
     
   function startQuiz() {
   console.log(startButton)
@@ -64,28 +64,30 @@ startButton.addEventListener("click", startQuiz)
 
                 var questions = [
                 {
-                   askQuestion: "first question",
+                   askQuestion: "Inside which HTML element do we put the JavaScript?",
                     options: [
-                      {text: "1"},
-                      {text: "2"},
-                      {text: "3"},
-                      {text: "4"}
+                      {text: "<script>"},
+                      {text: "<scripting>"},
+                      {text: "<javascript>"},
+                      {text: "<js>"}
                     ],
                     
-                      correct: "1",
+                      correct: "<script>",
                     }, 
                     // console.log (questions.options[3].text)
   
                 
-                  {askQuestion: "second question",
+                  {askQuestion: "Which of the following is not a valid JavaScript variable name?",
+                  
+                 
                        options: [
-                         {text: "1"},
-                         {text: "2"},
-                         {text: "3"},
-                         {text: "4"}
+                         {text: "first_name"},
+                         {text: "2places"},
+                         {text: "OneAndTwo"},
+                         {text: "None of the above"}
                        ],
                        
-                         correct: "1",
+                         correct: "2places",
                        }, 
                        {
                         askQuestion: "third question",
@@ -112,13 +114,13 @@ startButton.addEventListener("click", startQuiz)
         
         function selectAnswer(event){
           console.log(event)
-          var userSelect = event.target.innerHTML
+          var userSelect = event.target.innerText
           // console.log(userSelect)
           var rightWrong = document.getElementById("rightWrong");
-          if (userSelect === questions[0].correct){
+          if (userSelect === questions[currentQuestionIndex].correct){
             rightWrong.textContent = "Correct!"
             userScore.points = (userScore.points + 5)
-            // console.log(userScore)
+            console.log(userSelect)
          } else {
             rightWrong.textContent = "Wrong!"
          }
@@ -133,7 +135,7 @@ startButton.addEventListener("click", startQuiz)
           timerE1.classList.add("hide");
           userScore.name = prompt("Please enter in your initials");
           // console.log(prompt)
-          console.log(JSON.stringify(userScore));
+          // console.log(JSON.stringify(userScore));
           localStorage.setItem("user", JSON.stringify(userScore));
           if (window.prompt){
             window.location.href ="highscores.html"
@@ -144,8 +146,17 @@ startButton.addEventListener("click", startQuiz)
           // var whereIsThis=event.target
           // console.log(whereIsThis)
           // console.log(window.prompt)
-        }
-        }
+          // showHighScores();
+        }}
+        // }
+        // function showHighScores(){
+        //   var highScores = JSON.parse(localStorage.getItem("user"));
+        //   var name = document.getElementById("name");
+        //   var score = document.getElementById("score");
+        //   console.log(highScores)
+        //   name.textContent = highScores[0];
+        //   score.textcontent = highScores[1]; 
+        // }
 
         
         //Click on Start button

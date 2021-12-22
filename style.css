@@ -49,3 +49,12 @@ box-shadow: 0 0 10px 5px;
 .hide {
     display: none;
 }
+h1 {
+    justify-content: space-around;
+}
+
+#name,
+#score {
+    /* flex-direction: column; */
+    font-size: larger;
+}
