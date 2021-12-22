@@ -1,6 +1,6 @@
 var startButton = document.getElementById("start");
 var timerE1 = document.getElementById("displayTimer");
-var timer = 10;
+var timer = 45;
 var questionBox = document.getElementById("questions-container")
 var questionDisplay = document.getElementById("questions")
 var buttonDisplay = document.getElementById("option-buttons")
@@ -77,7 +77,7 @@ startButton.addEventListener("click", startQuiz);
                     // console.log (questions.options[3].text)
   
                 
-                  {askQuestion: "Which of the following is not a valid JavaScript variable name?",
+                  {askQuestion: "Which of the following is NOT a valid JavaScript variable name?",
                   
                  
                        options: [
@@ -90,15 +90,15 @@ startButton.addEventListener("click", startQuiz);
                          correct: "2places",
                        }, 
                        {
-                        askQuestion: "third question",
+                        askQuestion: "What is the correct JavaScript syntax to write 'Hello World' in the console?",
                          options: [
-                           {text: "1"},
-                           {text: "2"},
-                           {text: "3"},
-                           {text: "4"}
+                           {text: "document.write('Hello World')"},
+                           {text: "response.write('Hello World')"},
+                           {text: "console.log('Hello World')"},
+                           {text: "document.innerText('Hello World')"}
                          ],
                          
-                           correct: "1",
+                           correct: "console.log('Hello World')",
                          }      
                    ]; 
                   //  console.log(questions)
@@ -123,14 +123,16 @@ startButton.addEventListener("click", startQuiz);
             console.log(userSelect)
          } else {
             rightWrong.textContent = "Wrong!"
+            timer -= 10;
          }
          currentQuestionIndex++;
         //  for (var i = 0; i < questions.length; currentQuestionIndex++){
         //  showQuestion();
         //  };
-        if (currentQuestionIndex < questions.length){
+        if (currentQuestionIndex < questions.length && timer > 0){
          showQuestion();
         }else{
+          timer = 0;
           questionBox.classList.add("hide");
           timerE1.classList.add("hide");
           userScore.name = prompt("Please enter in your initials");
