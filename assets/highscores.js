@@ -1,7 +1,6 @@
 function showHighScores() {
     var highScores = JSON.parse(localStorage.getItem("user"));
     var scores = document.getElementById("scores");
-    console.log(highScores)
     if (highScores) {
         for (var i = 0; i < highScores.length; i++) {
             var list = document.createElement("li");
