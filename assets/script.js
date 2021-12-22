@@ -6,8 +6,13 @@ var questionDisplay = document.getElementById("questions")
 var buttonDisplay = document.getElementById("option-buttons")
 var currentQuestionIndex = 0
 var userScore = {name:" ", points: 0,}
+if (JSON.parse(localStorage.getItem("user"))){
+  var player = JSON.parse(localStorage.getItem("user"))
 
-
+}else{
+  var player = [];
+}
+console.log(player);
 //start button starts timer and it stops when hits 0
 
 startButton.addEventListener("click", startQuiz);
@@ -136,9 +141,10 @@ startButton.addEventListener("click", startQuiz);
           questionBox.classList.add("hide");
           timerE1.classList.add("hide");
           userScore.name = prompt("Please enter in your initials");
-          // console.log(prompt)
+          player.push(userScore)
+          console.log(player)
           // console.log(JSON.stringify(userScore));
-          localStorage.setItem("user", JSON.stringify(userScore));
+          localStorage.setItem("user", JSON.stringify(player));
           if (window.prompt){
             window.location.href ="highscores.html"
           } 
